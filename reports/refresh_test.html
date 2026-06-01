@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ICT 選幣量化評分報告</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #1c2430;
+      --muted: #6b7280;
+      --line: #d9dee8;
+      --long: #0f9f6e;
+      --short: #d94f4f;
+      --neutral: #64748b;
+      --accent: #2f6fdd;
+      --warn: #b7791f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft JhengHei", "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+    }
+    main { max-width: 1440px; margin: 0 auto; padding: 28px; }
+    .topline { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 22px; }
+    h1 { margin: 0; font-size: clamp(24px, 3vw, 36px); letter-spacing: 0; }
+    .meta { color: var(--muted); font-size: 14px; text-align: right; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 22px; }
+    .metric { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+    .metric span { display: block; color: var(--muted); font-size: 13px; }
+    .metric strong { font-size: 22px; }
+    table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; font-size: 14px; white-space: nowrap; }
+    th { color: var(--muted); background: #eef2f7; font-weight: 700; }
+    tr:last-child td { border-bottom: 0; }
+    .pill { display: inline-flex; align-items: center; min-width: 46px; justify-content: center; padding: 3px 8px; border-radius: 999px; color: #fff; font-size: 13px; }
+    .pill.long { background: var(--long); }
+    .pill.short { background: var(--short); }
+    .pill.neutral { background: var(--neutral); }
+    .pill.market { background: var(--long); }
+    .pill.limit { background: var(--accent); }
+    .pill.watch { background: var(--warn); }
+    .pill.avoid { background: var(--neutral); }
+    .score { font-weight: 800; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .card header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .card h2 { margin: 0; font-size: 22px; letter-spacing: 0; }
+    .rank { color: var(--muted); font-weight: 700; }
+    .scorebar { height: 9px; border-radius: 999px; background: #e5e9f0; overflow: hidden; margin: 12px 0 14px; }
+    .scorebar i { display: block; height: 100%; background: var(--accent); }
+    dl { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 0 0 12px; }
+    dl div { border: 1px solid var(--line); border-radius: 8px; padding: 8px; min-width: 0; }
+    dt { color: var(--muted); font-size: 12px; }
+    dd { margin: 2px 0 0; font-weight: 700; overflow-wrap: anywhere; }
+    section h3 { margin: 12px 0 4px; font-size: 15px; }
+    ul { margin: 0; padding-left: 20px; }
+    li { margin: 2px 0; }
+    .features { display: grid; gap: 6px; margin-top: 12px; }
+    .feature { display: grid; grid-template-columns: 130px 1fr 38px; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+    .feature div { height: 6px; background: #e8edf4; border-radius: 999px; overflow: hidden; }
+    .feature i { display: block; height: 100%; background: var(--accent); }
+    .note { margin-top: 20px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 980px) {
+      main { padding: 18px; }
+      .topline { display: block; }
+      .meta { text-align: left; margin-top: 8px; }
+      .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tablewrap { overflow-x: auto; }
+      .grid { grid-template-columns: 1fr; }
+      dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="topline">
+    <div>
+      <h1>ICT 選幣量化評分報告</h1>
+      <div class="meta">Exchange: bybit-linear · Generated: 2026-06-01T12:52:43.167263+00:00</div>
+    </div>
+    <div class="meta">Data source: public exchange REST API · No simulated candles</div>
+  </div>
+  <section class="summary">
+    <div class="metric"><span>掃描幣種</span><strong>3</strong></div>
+    <div class="metric"><span>A/B 候選</span><strong>2</strong></div>
+    <div class="metric"><span>看多</span><strong>2</strong></div>
+    <div class="metric"><span>看空</span><strong>1</strong></div>
+  </section>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Symbol</th><th>方向</th><th>動作</th><th>可執行</th><th>做單方式</th><th>分數</th><th>Grade</th><th>Price</th><th>24h%</th><th>Vol</th><th>Entry</th><th>Stop</th><th>Target</th><th>RR</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+            <tr>
+              <td>1</td>
+              <td><strong>ETHUSDT</strong></td>
+              <td><span class="pill long">看多</span></td>
+              <td><span class="pill watch">觀察</span></td>
+              <td>待確認</td>
+              <td>原始模型是 市價做，但穩定器尚未連續確認；先盯 1,987.11 - 1,989.33，確認後再照 市價做 執行。</td>
+              <td><span class="score">83.8</span></td>
+              <td>A</td>
+              <td>1,988.71</td>
+              <td>-1.64%</td>
+              <td>2.23B</td>
+              <td>1,987.11 - 1,989.33</td>
+              <td>1,985.72</td>
+              <td>1,993.23</td>
+              <td>2.00</td>
+            </tr>
+            
+            <tr>
+              <td>2</td>
+              <td><strong>BTCUSDT</strong></td>
+              <td><span class="pill short">看空</span></td>
+              <td><span class="pill watch">觀察</span></td>
+              <td>觀察</td>
+              <td>看空 條件還不完整；先等 MSS/BOS、FVG/OTE、RR 或 API 風險改善。</td>
+              <td><span class="score">79.4</span></td>
+              <td>B</td>
+              <td>72,176.10</td>
+              <td>-2.30%</td>
+              <td>4.50B</td>
+              <td>72,779.30 - 72,801.10</td>
+              <td>73,111.21</td>
+              <td>71,862.00</td>
+              <td>2.89</td>
+            </tr>
+            
+            <tr>
+              <td>3</td>
+              <td><strong>HYPEUSDT</strong></td>
+              <td><span class="pill long">看多</span></td>
+              <td><span class="pill avoid">不能做</span></td>
+              <td>不能做</td>
+              <td>穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。</td>
+              <td><span class="score">57.6</span></td>
+              <td>Watch</td>
+              <td>74.0800</td>
+              <td>+8.72%</td>
+              <td>698.5M</td>
+              <td>73.3660 - 73.8000</td>
+              <td>72.5270</td>
+              <td>75.6951</td>
+              <td>2.00</td>
+            </tr>
+            
+      </tbody>
+    </table>
+  </div>
+  <section class="grid">
+    
+            <article class="card">
+              <header>
+                <div>
+                <span class="rank">#1</span>
+                <h2>ETHUSDT</h2>
+              </div>
+                <span class="pill watch">待確認</span>
+              </header>
+              <div class="scorebar"><i style="width:83.8%"></i></div>
+              <dl>
+                <div><dt>Score</dt><dd>83.8 / 100</dd></div>
+                <div><dt>執行</dt><dd>待確認 / 市價做</dd></div>
+                <div><dt>Entry</dt><dd>1,987.11 - 1,989.33</dd></div>
+                <div><dt>Stop</dt><dd>1,985.72</dd></div>
+                <div><dt>Target</dt><dd>1,993.23</dd></div>
+                <div><dt>RR</dt><dd>2.00</dd></div>
+              </dl>
+              <section>
+                <h3>訊號來源</h3>
+                <ul><li>+16.0/16 1H + 4H 出現有效流動性掃蕩並收回關鍵位</li><li>+9.5/14 4H 位於折價區 position=0.06、接近 4H 訂單塊 POI</li><li>+16.0/16 15m MSS 收盤突破 1989.4</li><li>+12.8/14 2026-06-01T12:40:00+00:00 long FVG 已回補測試但未完全填補，且與 OTE 重疊</li><li>+10.0/10 價格位於 OTE 0.62-0.79 回撤區 (0.62)，且與 FVG 入場區重疊</li></ul>
+              </section>
+              <section>
+                <h3>提醒</h3>
+                <ul><li>原始模型是 市價做，但穩定器尚未連續確認；先盯 1,987.11 - 1,989.33，確認後再照 市價做 執行。</li><li>穩定分數 83.8，暫不下單。原始判斷：市價做；交易候選需連續 2 次確認，目前 1/2。</li><li>沒有明確大實體單向位移</li><li>nexus 未納入分母：Nexus/Silver Bullet 未觸發：outside_silver_bullet</li></ul>
+              </section>
+              <div class="features"><div class="feature"><span>liquidity sweep</span><div><i style="width:100.0%"></i></div><b>16.0/16</b></div><div class="feature"><span>htf poi</span><div><i style="width:67.9%"></i></div><b>9.5/14</b></div><div class="feature"><span>mss bos</span><div><i style="width:100.0%"></i></div><b>16.0/16</b></div><div class="feature"><span>displacement</span><div><i style="width:0.0%"></i></div><b>0.0/12</b></div><div class="feature"><span>fvg</span><div><i style="width:91.4%"></i></div><b>12.8/14</b></div><div class="feature"><span>ote</span><div><i style="width:100.0%"></i></div><b>10.0/10</b></div><div class="feature"><span>trendline</span><div><i style="width:25.0%"></i></div><b>1.0/4</b></div><div class="feature"><span>amd</span><div><i style="width:45.0%"></i></div><b>2.2/5</b></div><div class="feature"><span>risk reward</span><div><i style="width:100.0%"></i></div><b>12.0/12</b></div><div class="feature"><span>market quality</span><div><i style="width:70.0%"></i></div><b>4.2/6</b></div></div>
+            </article>
+            
+            <article class="card">
+              <header>
+                <div>
+                <span class="rank">#2</span>
+                <h2>BTCUSDT</h2>
+              </div>
+                <span class="pill watch">觀察</span>
+              </header>
+              <div class="scorebar"><i style="width:79.4%"></i></div>
+              <dl>
+                <div><dt>Score</dt><dd>79.4 / 100</dd></div>
+                <div><dt>執行</dt><dd>觀察 / 不下單</dd></div>
+                <div><dt>Entry</dt><dd>72,779.30 - 72,801.10</dd></div>
+                <div><dt>Stop</dt><dd>73,111.21</dd></div>
+                <div><dt>Target</dt><dd>71,862.00</dd></div>
+                <div><dt>RR</dt><dd>2.89</dd></div>
+              </dl>
+              <section>
+                <h3>訊號來源</h3>
+                <ul><li>+16.0/16 1H + 4H 出現有效流動性掃蕩並收回關鍵位</li><li>+9.0/14 接近 4H FVG/失衡區、接近 4H 訂單塊 POI</li><li>+16.0/16 15m MSS 收盤突破 72541.7</li><li>+11.4/12 15m 位移 K body/ATR=1.97 但 FVG 不明顯</li><li>+7.0/14 2026-06-01T10:15:00+00:00 short FVG 尚未完全填補</li></ul>
+              </section>
+              <section>
+                <h3>提醒</h3>
+                <ul><li>看空 條件還不完整；先等 MSS/BOS、FVG/OTE、RR 或 API 風險改善。</li><li>穩定分數 79.4，暫不下單。原始判斷：觀察；訊號尚未完整，只保留觀察。</li><li>nexus 未納入分母：Nexus/Silver Bullet 未觸發：outside_silver_bullet</li></ul>
+              </section>
+              <div class="features"><div class="feature"><span>liquidity sweep</span><div><i style="width:100.0%"></i></div><b>16.0/16</b></div><div class="feature"><span>htf poi</span><div><i style="width:64.3%"></i></div><b>9.0/14</b></div><div class="feature"><span>mss bos</span><div><i style="width:100.0%"></i></div><b>16.0/16</b></div><div class="feature"><span>displacement</span><div><i style="width:95.0%"></i></div><b>11.4/12</b></div><div class="feature"><span>fvg</span><div><i style="width:50.0%"></i></div><b>7.0/14</b></div><div class="feature"><span>ote</span><div><i style="width:0.0%"></i></div><b>0.0/10</b></div><div class="feature"><span>trendline</span><div><i style="width:25.0%"></i></div><b>1.0/4</b></div><div class="feature"><span>amd</span><div><i style="width:20.0%"></i></div><b>1.0/5</b></div><div class="feature"><span>risk reward</span><div><i style="width:100.0%"></i></div><b>12.0/12</b></div><div class="feature"><span>market quality</span><div><i style="width:100.0%"></i></div><b>6.0/6</b></div></div>
+            </article>
+            
+            <article class="card">
+              <header>
+                <div>
+                <span class="rank">#3</span>
+                <h2>HYPEUSDT</h2>
+              </div>
+                <span class="pill avoid">不能做</span>
+              </header>
+              <div class="scorebar"><i style="width:57.6%"></i></div>
+              <dl>
+                <div><dt>Score</dt><dd>57.6 / 100</dd></div>
+                <div><dt>執行</dt><dd>不能做 / 禁止</dd></div>
+                <div><dt>Entry</dt><dd>73.3660 - 73.8000</dd></div>
+                <div><dt>Stop</dt><dd>72.5270</dd></div>
+                <div><dt>Target</dt><dd>75.6951</dd></div>
+                <div><dt>RR</dt><dd>2.00</dd></div>
+              </dl>
+              <section>
+                <h3>訊號來源</h3>
+                <ul><li>+9.2/16 1H 出現有效流動性掃蕩並收回關鍵位</li><li>+4.5/14 接近 4H 訂單塊 POI</li><li>+16.0/16 15m MSS 收盤突破 73.472</li><li>+11.7/14 2026-06-01T12:30:00+00:00 long FVG 已回補測試但未完全填補，且與 OB 重疊</li><li>+12.0/12 以最近流動性目標估算 RR=2.00</li></ul>
+              </section>
+              <section>
+                <h3>提醒</h3>
+                <ul><li>穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。</li><li>穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。</li><li>沒有明確大實體單向位移</li><li>trendline 未納入分母：未形成有效 2-3 觸點趨勢線破位，屬於未觸發加分項</li><li>amd 未納入分母：AMD 未進入可交易階段：no_accumulation</li><li>nexus 未納入分母：Nexus/Silver Bullet 未觸發：outside_silver_bullet</li></ul>
+              </section>
+              <div class="features"><div class="feature"><span>liquidity sweep</span><div><i style="width:57.5%"></i></div><b>9.2/16</b></div><div class="feature"><span>htf poi</span><div><i style="width:32.1%"></i></div><b>4.5/14</b></div><div class="feature"><span>mss bos</span><div><i style="width:100.0%"></i></div><b>16.0/16</b></div><div class="feature"><span>displacement</span><div><i style="width:0.0%"></i></div><b>0.0/12</b></div><div class="feature"><span>fvg</span><div><i style="width:83.6%"></i></div><b>11.7/14</b></div><div class="feature"><span>ote</span><div><i style="width:0.0%"></i></div><b>0.0/10</b></div><div class="feature"><span>risk reward</span><div><i style="width:100.0%"></i></div><b>12.0/12</b></div><div class="feature"><span>market quality</span><div><i style="width:70.0%"></i></div><b>4.2/6</b></div></div>
+            </article>
+            
+  </section>
+  <p class="note">這份報告只做選幣與觀察清單評分，不自動下單，也不是投資建議。重大新聞、鏈上資金流、真實委託簿深度若沒有接付費/授權資料，系統會以保守方式處理。</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,1000 @@
+{
+  "meta": {
+    "exchange": "bybit-linear",
+    "generated_at": "2026-06-01T12:52:43.164155+00:00",
+    "top": 3,
+    "min_volume": 20000000,
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "HYPEUSDT"
+    ],
+    "timeframe_limits": {
+      "4h": 360,
+      "1h": 500,
+      "15m": 500,
+      "5m": 500
+    },
+    "source_errors": [],
+    "scan_errors": [],
+    "paid_data": {
+      "enabled": true,
+      "providers": [
+        {
+          "id": "exchange_public",
+          "name": "Bybit / Binance 公開衍生品資料",
+          "category": "免費內建 / OI + Funding",
+          "purpose": "不需要 key，直接用交易所公開 API 補未平倉量與 funding，作為所有掃描的底層資料。",
+          "apply_url": "https://bybit-exchange.github.io/docs/v5/market/open-interest",
+          "docs_url": "https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Open-Interest",
+          "configured": true,
+          "enabled": true,
+          "state": "可讀取",
+          "message": "本次讀到 3 個幣種，失敗 0 個。",
+          "key_hint": "不需要 API key",
+          "data_latency": "交易所公開端點，通常秒級到分鐘級",
+          "realtime_status": "近即時",
+          "health_note": "每次掃描都會讀 funding 與 OI；若交易所限流會顯示部分可讀。",
+          "readable": true,
+          "success_count": 3,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "coinglass",
+          "name": "CoinGlass",
+          "category": "最佳衍生品 / 清算熱力圖",
+          "purpose": "OI、funding、爆倉、清算熱力圖、訂單簿熱力圖。",
+          "apply_url": "https://www.coinglass.com/CryptoApi",
+          "docs_url": "https://docs.coinglass.com/reference/getting-started-with-your-api",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "CG-API-KEY",
+          "data_latency": "依方案，頁面標示 Updates ≤ 1 min",
+          "realtime_status": "近即時 / 付費",
+          "health_note": "清算、熱力圖、L2/L3 與 ETF 等高價值資料依方案開通。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "coinalyze",
+          "name": "Coinalyze",
+          "category": "免費衍生品 / CVD",
+          "purpose": "OI、funding、long/short、buy/sell、爆倉歷史；可補 ICT 位移背後的槓桿與主動買賣資料。",
+          "apply_url": "https://coinalyze.net",
+          "docs_url": "https://api.coinalyze.net/v1/doc/",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "api_key",
+          "data_latency": "API 文件標示 intraday 保留約 1500-2000 筆，40 calls/min",
+          "realtime_status": "近即時 / 免費",
+          "health_note": "適合補 OI、funding、long-short 與爆倉歷史。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "coingecko",
+          "name": "CoinGecko",
+          "category": "多功能市場資料 / 免費 Demo",
+          "purpose": "一個 API 補價格、市值、交易所、衍生品、鏈上 DEX、新聞與基本資料；免費 Demo 可先用。",
+          "apply_url": "https://www.coingecko.com/en/api",
+          "docs_url": "https://docs.coingecko.com/reference/setting-up-your-api-key",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "x-cg-demo-api-key",
+          "data_latency": "Demo/付費方案不同，通常分鐘級",
+          "realtime_status": "非交易所即時",
+          "health_note": "用於交叉檢查市值、交易量、基本資料與鏈上 DEX 背景。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "defillama",
+          "name": "DeFiLlama",
+          "category": "免費 DeFi / 穩定幣 / TVL",
+          "purpose": "免費公開 API，補 DeFi TVL、穩定幣供給、DEX 量、費用與鏈上宏觀背景。",
+          "apply_url": "https://defillama.com/docs/api",
+          "docs_url": "https://defillama.com/docs/api",
+          "configured": true,
+          "enabled": true,
+          "state": "可讀取",
+          "message": "已讀取 DeFiLlama 宏觀 TVL/協議資料。",
+          "key_hint": "不需要 API key",
+          "data_latency": "多數宏觀資料為分鐘到日級",
+          "realtime_status": "非即時",
+          "health_note": "TVL、穩定幣、DEX 量等宏觀背景，不直接當入場訊號。",
+          "readable": true,
+          "success_count": 1,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "cryptopanic",
+          "name": "CryptoPanic",
+          "category": "新聞事件 / 免費 + 付費",
+          "purpose": "加密新聞、情緒、重要事件；免費 token 可先用，PLUS 可升級更多欄位。",
+          "apply_url": "https://cryptopanic.com/developers/api/",
+          "docs_url": "https://cryptopanic.com/developers/api/",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "auth_token",
+          "data_latency": "新聞快取，官方建議不必每 30 秒內重複請求",
+          "realtime_status": "近即時新聞",
+          "health_note": "用於標記事件風險，不直接產生入場。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "glassnode",
+          "name": "Glassnode",
+          "category": "鏈上資金流",
+          "purpose": "交易所淨流入/淨流出、ETF/衍生品與鏈上週期資料。",
+          "apply_url": "https://studio.glassnode.com/pricing",
+          "docs_url": "https://docs.glassnode.com/basic-api/api",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "X-Api-Key 或 api_key",
+          "data_latency": "鏈上資料通常分鐘到小時級，依指標而定",
+          "realtime_status": "非完全即時",
+          "health_note": "交易所淨流、鏈上週期、ETF/資金流屬高品質背景資料。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "cryptoquant",
+          "name": "CryptoQuant",
+          "category": "鏈上資金流",
+          "purpose": "交易所 reserve/netflow、礦工、穩定幣與專業鏈上指標。",
+          "apply_url": "https://cryptoquant.com/en/pricing",
+          "docs_url": "https://cryptoquant.com/en/docs",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "Authorization: Bearer",
+          "data_latency": "鏈上/交易所指標通常分鐘到小時級",
+          "realtime_status": "非完全即時",
+          "health_note": "交易所 reserve/netflow、礦工、穩定幣資料用於風險共振。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "coinmarketcal",
+          "name": "CoinMarketCal",
+          "category": "事件日曆",
+          "purpose": "上幣、解鎖、升級、監管、投票等可能造成誘導或劇烈波動的事件。",
+          "apply_url": "https://coinmarketcal.com/en/api",
+          "docs_url": "https://www.postman.com/coinmarketcalapi/coinmarketcal-api/documentation/61mcdog/coinmarketcal-api",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "x-api-key",
+          "data_latency": "事件日曆，日級/事件級",
+          "realtime_status": "非即時",
+          "health_note": "用於提前標示上幣、解鎖、升級等事件風險。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "thetie",
+          "name": "The Tie",
+          "category": "最佳新聞 / 情緒 / 解鎖",
+          "purpose": "新聞、情緒、token unlock、開發活動與鏈上基本面；偏機構級。",
+          "apply_url": "https://www.thetie.io/solutions/api",
+          "docs_url": "https://docs.thetie.io/reference",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "API key",
+          "data_latency": "新聞/情緒依方案與來源而定",
+          "realtime_status": "近即時 / 付費",
+          "health_note": "機構級新聞、情緒、解鎖與開發活動資料。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        },
+        {
+          "id": "tokenmetrics",
+          "name": "Token Metrics",
+          "category": "AI 評級 / 情緒 / 訊號",
+          "purpose": "交易評級、投資評級、市場情緒與 AI 指標；作為外部共振而非取代本策略。",
+          "apply_url": "https://www.tokenmetrics.com/api",
+          "docs_url": "https://developers.tokenmetrics.com/docs/getting-started",
+          "configured": false,
+          "enabled": false,
+          "state": "未設定",
+          "message": "尚未輸入 API key",
+          "key_hint": "x-api-key",
+          "data_latency": "評級與訊號依方案更新",
+          "realtime_status": "非交易所即時",
+          "health_note": "Trader Grade、Investor Grade、Bull/Bear signal 作為外部 AI 共振。",
+          "readable": false,
+          "success_count": 0,
+          "failure_count": 0,
+          "last_error": ""
+        }
+      ],
+      "errors": []
+    }
+  },
+  "reports": [
+    {
+      "symbol": "ETHUSDT",
+      "exchange": "bybit-linear",
+      "direction": "long",
+      "direction_label": "看多",
+      "score": 83.75,
+      "grade": "A",
+      "trade_action": "watch",
+      "trade_action_label": "觀察",
+      "trade_action_reason": "穩定分數 83.8，暫不下單。原始判斷：市價做；交易候選需連續 2 次確認，目前 1/2。",
+      "execution_label": "待確認",
+      "execution_mode": "市價做",
+      "execution_summary": "原始模型是 市價做，但穩定器尚未連續確認；先盯 1,987.11 - 1,989.33，確認後再照 市價做 執行。",
+      "execution_steps": [
+        "方向：看多",
+        "執行：市價做",
+        "入場：1,987.11 - 1,989.33",
+        "止損：1,985.72",
+        "止盈：TP1 1,990.72 出 30%；TP2 1,993.23 出 40%；TP3 1,995.73 出 30%",
+        "風報比：2.00R",
+        "原因：穩定分數 83.8，暫不下單。原始判斷：市價做；交易候選需連續 2 次確認，目前 1/2。"
+      ],
+      "should_execute": false,
+      "raw_trade_action": "market",
+      "raw_trade_action_label": "市價做",
+      "raw_trade_action_reason": "高分、高資料完整度、RR 足夠，且現價已在/貼近入場區。",
+      "entry_distance_pct": 0.0,
+      "quant_diagnostics": {
+        "htf_context": 85.0,
+        "ltf_trigger": 57.1,
+        "entry_quality": 95.0,
+        "risk_reward_quality": 100.0,
+        "market_api_quality": 70.0,
+        "optional_confluence": 36.1,
+        "external_api_ok": true,
+        "derivative_blocked": false,
+        "derivative_warning": "",
+        "core_ict_ok": true
+      },
+      "score_model": {
+        "method": "核心 ICT 100 分動態分母 + 共振加分；未申請或未觸發的資料不當 0 分扣分。",
+        "core_raw": 80.5,
+        "core_available_max": 100.0,
+        "core_score": 80.5,
+        "bonus_score": 3.25,
+        "bonus_available_max": 9.0,
+        "final_score": 83.75,
+        "data_completeness": 100.0,
+        "optional_features": {
+          "trendline": {
+            "score": 1.0,
+            "max": 4.0
+          },
+          "amd": {
+            "score": 2.25,
+            "max": 5.0
+          }
+        },
+        "skipped_core": {},
+        "skipped_optional_not_penalized": {
+          "nexus": "Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+        },
+        "external_providers_used": [
+          "DeFiLlama",
+          "交易所公開衍生品"
+        ],
+        "paid_api_rule": "只有成功讀到且形成共振的外部資料才加分；未設定的付費 API 不納入分母。"
+      },
+      "signal_state": {
+        "direction": "long",
+        "raw_action": "market",
+        "stable_action": {
+          "code": "watch",
+          "label": "觀察",
+          "reason": "穩定分數 83.8，暫不下單。原始判斷：市價做；交易候選需連續 2 次確認，目前 1/2。",
+          "entry_distance_pct": 0.0
+        },
+        "smoothed_score": 83.75,
+        "last_score": 83.75,
+        "confirm_count": 1,
+        "fail_count": 0,
+        "updated_at": "2026-06-01T12:52:43.163207+00:00",
+        "raw_action_label": "市價做",
+        "raw_action_reason": "高分、高資料完整度、RR 足夠，且現價已在/貼近入場區。",
+        "stability_reason": "交易候選需連續 2 次確認，目前 1/2。",
+        "behavior_analysis": [
+          "目前方向：long，原始分數 83.8，平滑分數 83.8。",
+          "HTF 背景 85.0，LTF 觸發 57.1，入場品質 95.0。",
+          "風控品質 100.0，市場/API 品質 70.0。",
+          "衍生品/API 資料已參與判斷。",
+          "目前主計畫 RR 約 2.00R。"
+        ],
+        "trade_plan": [
+          "狀態：觀察。原始模型：市價做；平滑分數：83.8。",
+          "只在入場區 1987.11 - 1989.33 附近執行，不追價。",
+          "止損放在 1985.72，若被打到代表結構/流動性假設失效。",
+          "TP1 1990.72，約 1.00R，建議出 30%。到 1R 可先減倉，保護本金",
+          "TP2 1993.23，約 2.00R，建議出 40%。主目標，優先看最近買方流動性",
+          "TP3 1995.73，約 3.00R，建議出 30%。延伸目標，趨勢強才保留",
+          "執行方式：只觀察，等待連續確認、MSS/BOS、FVG/OTE 重疊或 API 風險改善。"
+        ]
+      },
+      "price": 1988.71,
+      "change_pct_24h": -1.6351999999999998,
+      "quote_volume_24h": 2231648690.1095,
+      "data_time": "2026-06-01T12:50:00+00:00",
+      "entry_zone": [
+        1987.11,
+        1989.33
+      ],
+      "stop": 1985.7164285714284,
+      "target": 1993.2271428571426,
+      "take_profits": [
+        {
+          "name": "TP1",
+          "price": 1990.7235714285712,
+          "rr": 1.0,
+          "portion_pct": 30.0,
+          "note": "到 1R 可先減倉，保護本金"
+        },
+        {
+          "name": "TP2",
+          "price": 1993.2271428571426,
+          "rr": 2.0,
+          "portion_pct": 40.0,
+          "note": "主目標，優先看最近買方流動性"
+        },
+        {
+          "name": "TP3",
+          "price": 1995.730714285714,
+          "rr": 3.0,
+          "portion_pct": 30.0,
+          "note": "延伸目標，趨勢強才保留"
+        }
+      ],
+      "rr": 2.0,
+      "reasons": [
+        "+16.0/16 1H + 4H 出現有效流動性掃蕩並收回關鍵位",
+        "+9.5/14 4H 位於折價區 position=0.06、接近 4H 訂單塊 POI",
+        "+16.0/16 15m MSS 收盤突破 1989.4",
+        "+12.8/14 2026-06-01T12:40:00+00:00 long FVG 已回補測試但未完全填補，且與 OTE 重疊",
+        "+10.0/10 價格位於 OTE 0.62-0.79 回撤區 (0.62)，且與 FVG 入場區重疊",
+        "+1.0/4 共振加分：4H 有 2 觸點趨勢線，但尚未破位",
+        "+2.2/5 共振加分：AMD phase=manipulation_seen_waiting_distribution",
+        "+12.0/12 以最近流動性目標估算 RR=2.00",
+        "+4.2/6 24h 成交額 > 1 億 USDT、與 BTC 相關性 0.89，但 BTC 方向不完全同向"
+      ],
+      "warnings": [
+        "沒有明確大實體單向位移",
+        "nexus 未納入分母：Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+      ],
+      "feature_scores": {
+        "liquidity_sweep": 16.0,
+        "htf_poi": 9.5,
+        "mss_bos": 16.0,
+        "displacement": 0.0,
+        "fvg": 12.8,
+        "ote": 10.0,
+        "trendline": 1.0,
+        "amd": 2.25,
+        "risk_reward": 12.0,
+        "market_quality": 4.2
+      },
+      "feature_max_scores": {
+        "liquidity_sweep": 16.0,
+        "htf_poi": 14.0,
+        "mss_bos": 16.0,
+        "displacement": 12.0,
+        "fvg": 14.0,
+        "ote": 10.0,
+        "trendline": 4.0,
+        "amd": 5.0,
+        "risk_reward": 12.0,
+        "market_quality": 6.0
+      },
+      "skipped_features": {
+        "nexus": "Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+      },
+      "raw_score": 83.75,
+      "core_raw_score": 80.5,
+      "core_score": 80.5,
+      "bonus_score": 3.25,
+      "bonus_available_max": 9.0,
+      "available_score_max": 100.0,
+      "data_completeness": 100.0,
+      "long_score": 83.75,
+      "short_score": 43.3,
+      "long_data_completeness": 100.0,
+      "short_data_completeness": 100.0,
+      "data_coverage": {
+        "4h": 360,
+        "1h": 500,
+        "15m": 500,
+        "5m": 500
+      },
+      "missing_data": [],
+      "metadata": {
+        "paid_data": {
+          "providers": [
+            "DeFiLlama",
+            "交易所公開衍生品"
+          ],
+          "values": {
+            "exchange_public_derivatives": {
+              "funding_rate": 1.818e-05,
+              "open_interest": 845391.04,
+              "open_interest_change_pct": 0.9206088883968946
+            },
+            "交易所公開資料_funding": 1.818e-05,
+            "defillama_macro": {
+              "protocol_count": 7605,
+              "total_tvl": 520194051917.0379
+            }
+          },
+          "bonus_long": 0.0,
+          "bonus_short": 0.0,
+          "warnings": []
+        },
+        "signal_state": {
+          "direction": "long",
+          "raw_action": "market",
+          "stable_action": {
+            "code": "watch",
+            "label": "觀察",
+            "reason": "穩定分數 83.8，暫不下單。原始判斷：市價做；交易候選需連續 2 次確認，目前 1/2。",
+            "entry_distance_pct": 0.0
+          },
+          "smoothed_score": 83.75,
+          "last_score": 83.75,
+          "confirm_count": 1,
+          "fail_count": 0,
+          "updated_at": "2026-06-01T12:52:43.163207+00:00",
+          "raw_action_label": "市價做",
+          "raw_action_reason": "高分、高資料完整度、RR 足夠，且現價已在/貼近入場區。",
+          "stability_reason": "交易候選需連續 2 次確認，目前 1/2。",
+          "behavior_analysis": [
+            "目前方向：long，原始分數 83.8，平滑分數 83.8。",
+            "HTF 背景 85.0，LTF 觸發 57.1，入場品質 95.0。",
+            "風控品質 100.0，市場/API 品質 70.0。",
+            "衍生品/API 資料已參與判斷。",
+            "目前主計畫 RR 約 2.00R。"
+          ],
+          "trade_plan": [
+            "狀態：觀察。原始模型：市價做；平滑分數：83.8。",
+            "只在入場區 1987.11 - 1989.33 附近執行，不追價。",
+            "止損放在 1985.72，若被打到代表結構/流動性假設失效。",
+            "TP1 1990.72，約 1.00R，建議出 30%。到 1R 可先減倉，保護本金",
+            "TP2 1993.23，約 2.00R，建議出 40%。主目標，優先看最近買方流動性",
+            "TP3 1995.73，約 3.00R，建議出 30%。延伸目標，趨勢強才保留",
+            "執行方式：只觀察，等待連續確認、MSS/BOS、FVG/OTE 重疊或 API 風險改善。"
+          ]
+        }
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "exchange": "bybit-linear",
+      "direction": "short",
+      "direction_label": "看空",
+      "score": 79.4,
+      "grade": "B",
+      "trade_action": "watch",
+      "trade_action_label": "觀察",
+      "trade_action_reason": "穩定分數 79.4，暫不下單。原始判斷：觀察；訊號尚未完整，只保留觀察。",
+      "execution_label": "觀察",
+      "execution_mode": "不下單",
+      "execution_summary": "看空 條件還不完整；先等 MSS/BOS、FVG/OTE、RR 或 API 風險改善。",
+      "execution_steps": [
+        "方向：看空",
+        "執行：不下單",
+        "入場：72,779.30 - 72,801.10",
+        "止損：73,111.21",
+        "止盈：TP1 72,469.19 出 30%；TP2 71,862.00 出 40%；TP3 71,827.17 出 30%",
+        "風報比：2.89R",
+        "原因：穩定分數 79.4，暫不下單。原始判斷：觀察；訊號尚未完整，只保留觀察。"
+      ],
+      "should_execute": false,
+      "raw_trade_action": "watch",
+      "raw_trade_action_label": "觀察",
+      "raw_trade_action_reason": "總分達標但 ICT 核心不完整：HTF 83.3、觸發 97.9、入場 29.2、風控 100.0。",
+      "entry_distance_pct": 0.8357337124061802,
+      "quant_diagnostics": {
+        "htf_context": 83.3,
+        "ltf_trigger": 97.9,
+        "entry_quality": 29.2,
+        "risk_reward_quality": 100.0,
+        "market_api_quality": 100.0,
+        "optional_confluence": 22.2,
+        "external_api_ok": true,
+        "derivative_blocked": false,
+        "derivative_warning": "",
+        "core_ict_ok": false
+      },
+      "score_model": {
+        "method": "核心 ICT 100 分動態分母 + 共振加分；未申請或未觸發的資料不當 0 分扣分。",
+        "core_raw": 77.4,
+        "core_available_max": 100.0,
+        "core_score": 77.4,
+        "bonus_score": 2.0,
+        "bonus_available_max": 9.0,
+        "final_score": 79.4,
+        "data_completeness": 100.0,
+        "optional_features": {
+          "trendline": {
+            "score": 1.0,
+            "max": 4.0
+          },
+          "amd": {
+            "score": 1.0,
+            "max": 5.0
+          }
+        },
+        "skipped_core": {},
+        "skipped_optional_not_penalized": {
+          "nexus": "Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+        },
+        "external_providers_used": [
+          "DeFiLlama",
+          "交易所公開衍生品"
+        ],
+        "paid_api_rule": "只有成功讀到且形成共振的外部資料才加分；未設定的付費 API 不納入分母。"
+      },
+      "signal_state": {
+        "direction": "short",
+        "raw_action": "watch",
+        "stable_action": {
+          "code": "watch",
+          "label": "觀察",
+          "reason": "穩定分數 79.4，暫不下單。原始判斷：觀察；訊號尚未完整，只保留觀察。",
+          "entry_distance_pct": 0.8357337124061802
+        },
+        "smoothed_score": 79.4,
+        "last_score": 79.4,
+        "confirm_count": 0,
+        "fail_count": 1,
+        "updated_at": "2026-06-01T12:52:43.163207+00:00",
+        "raw_action_label": "觀察",
+        "raw_action_reason": "總分達標但 ICT 核心不完整：HTF 83.3、觸發 97.9、入場 29.2、風控 100.0。",
+        "stability_reason": "訊號尚未完整，只保留觀察。",
+        "behavior_analysis": [
+          "目前方向：short，原始分數 79.4，平滑分數 79.4。",
+          "HTF 背景 83.3，LTF 觸發 97.9，入場品質 29.2。",
+          "風控品質 100.0，市場/API 品質 100.0。",
+          "衍生品/API 資料已參與判斷。",
+          "目前主計畫 RR 約 2.89R。"
+        ],
+        "trade_plan": [
+          "狀態：觀察。原始模型：觀察；平滑分數：79.4。",
+          "只在入場區 72779.3 - 72801.1 附近執行，不追價。",
+          "止損放在 73111.2，若被打到代表結構/流動性假設失效。",
+          "TP1 72469.2，約 1.00R，建議出 30%。到 1R 可先減倉，保護本金",
+          "TP2 71862，約 2.89R，建議出 40%。主目標，優先看最近賣方流動性",
+          "TP3 71827.2，約 3.00R，建議出 30%。延伸目標，趨勢強才保留",
+          "執行方式：只觀察，等待連續確認、MSS/BOS、FVG/OTE 重疊或 API 風險改善。"
+        ]
+      },
+      "price": 72176.1,
+      "change_pct_24h": -2.3005,
+      "quote_volume_24h": 4504047393.1092,
+      "data_time": "2026-06-01T12:50:00+00:00",
+      "entry_zone": [
+        72779.3,
+        72801.1
+      ],
+      "stop": 73111.20999999999,
+      "target": 71862.0,
+      "take_profits": [
+        {
+          "name": "TP1",
+          "price": 72469.19000000003,
+          "rr": 1.0,
+          "portion_pct": 30.0,
+          "note": "到 1R 可先減倉，保護本金"
+        },
+        {
+          "name": "TP2",
+          "price": 71862.0,
+          "rr": 2.8914987072055975,
+          "portion_pct": 40.0,
+          "note": "主目標，優先看最近賣方流動性"
+        },
+        {
+          "name": "TP3",
+          "price": 71827.17000000007,
+          "rr": 3.0,
+          "portion_pct": 30.0,
+          "note": "延伸目標，趨勢強才保留"
+        }
+      ],
+      "rr": 2.8914987072055975,
+      "reasons": [
+        "+16.0/16 1H + 4H 出現有效流動性掃蕩並收回關鍵位",
+        "+9.0/14 接近 4H FVG/失衡區、接近 4H 訂單塊 POI",
+        "+16.0/16 15m MSS 收盤突破 72541.7",
+        "+11.4/12 15m 位移 K body/ATR=1.97 但 FVG 不明顯",
+        "+7.0/14 2026-06-01T10:15:00+00:00 short FVG 尚未完全填補",
+        "+1.0/4 共振加分：4H 有 2 觸點趨勢線，但尚未破位",
+        "+1.0/5 共振加分：AMD phase=accumulation_only",
+        "+12.0/12 以最近流動性目標估算 RR=2.89",
+        "+6.0/6 24h 成交額 > 1 億 USDT、BTC 本身作為市場基準"
+      ],
+      "warnings": [
+        "nexus 未納入分母：Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+      ],
+      "feature_scores": {
+        "liquidity_sweep": 16.0,
+        "htf_poi": 9.0,
+        "mss_bos": 16.0,
+        "displacement": 11.4,
+        "fvg": 7.0,
+        "ote": 0.0,
+        "trendline": 1.0,
+        "amd": 1.0,
+        "risk_reward": 12.0,
+        "market_quality": 6.0
+      },
+      "feature_max_scores": {
+        "liquidity_sweep": 16.0,
+        "htf_poi": 14.0,
+        "mss_bos": 16.0,
+        "displacement": 12.0,
+        "fvg": 14.0,
+        "ote": 10.0,
+        "trendline": 4.0,
+        "amd": 5.0,
+        "risk_reward": 12.0,
+        "market_quality": 6.0
+      },
+      "skipped_features": {
+        "nexus": "Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+      },
+      "raw_score": 79.4,
+      "core_raw_score": 77.4,
+      "core_score": 77.4,
+      "bonus_score": 2.0,
+      "bonus_available_max": 9.0,
+      "available_score_max": 100.0,
+      "data_completeness": 100.0,
+      "long_score": 42.25,
+      "short_score": 79.4,
+      "long_data_completeness": 100.0,
+      "short_data_completeness": 100.0,
+      "data_coverage": {
+        "4h": 360,
+        "1h": 500,
+        "15m": 500,
+        "5m": 500
+      },
+      "missing_data": [],
+      "metadata": {
+        "paid_data": {
+          "providers": [
+            "DeFiLlama",
+            "交易所公開衍生品"
+          ],
+          "values": {
+            "exchange_public_derivatives": {
+              "funding_rate": -3.38e-06,
+              "open_interest": 55485.454,
+              "open_interest_change_pct": -1.2505351221484524
+            },
+            "交易所公開資料_funding": -3.38e-06,
+            "defillama_macro": {
+              "protocol_count": 7605,
+              "total_tvl": 520194051917.0379
+            }
+          },
+          "bonus_long": 0.0,
+          "bonus_short": 0.0,
+          "warnings": []
+        },
+        "signal_state": {
+          "direction": "short",
+          "raw_action": "watch",
+          "stable_action": {
+            "code": "watch",
+            "label": "觀察",
+            "reason": "穩定分數 79.4，暫不下單。原始判斷：觀察；訊號尚未完整，只保留觀察。",
+            "entry_distance_pct": 0.8357337124061802
+          },
+          "smoothed_score": 79.4,
+          "last_score": 79.4,
+          "confirm_count": 0,
+          "fail_count": 1,
+          "updated_at": "2026-06-01T12:52:43.163207+00:00",
+          "raw_action_label": "觀察",
+          "raw_action_reason": "總分達標但 ICT 核心不完整：HTF 83.3、觸發 97.9、入場 29.2、風控 100.0。",
+          "stability_reason": "訊號尚未完整，只保留觀察。",
+          "behavior_analysis": [
+            "目前方向：short，原始分數 79.4，平滑分數 79.4。",
+            "HTF 背景 83.3，LTF 觸發 97.9，入場品質 29.2。",
+            "風控品質 100.0，市場/API 品質 100.0。",
+            "衍生品/API 資料已參與判斷。",
+            "目前主計畫 RR 約 2.89R。"
+          ],
+          "trade_plan": [
+            "狀態：觀察。原始模型：觀察；平滑分數：79.4。",
+            "只在入場區 72779.3 - 72801.1 附近執行，不追價。",
+            "止損放在 73111.2，若被打到代表結構/流動性假設失效。",
+            "TP1 72469.2，約 1.00R，建議出 30%。到 1R 可先減倉，保護本金",
+            "TP2 71862，約 2.89R，建議出 40%。主目標，優先看最近賣方流動性",
+            "TP3 71827.2，約 3.00R，建議出 30%。延伸目標，趨勢強才保留",
+            "執行方式：只觀察，等待連續確認、MSS/BOS、FVG/OTE 重疊或 API 風險改善。"
+          ]
+        }
+      }
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "exchange": "bybit-linear",
+      "direction": "long",
+      "direction_label": "看多",
+      "score": 57.6,
+      "grade": "Watch",
+      "trade_action": "avoid",
+      "trade_action_label": "不能做",
+      "trade_action_reason": "穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。",
+      "execution_label": "不能做",
+      "execution_mode": "禁止",
+      "execution_summary": "穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。",
+      "execution_steps": [
+        "方向：看多",
+        "執行：禁止",
+        "入場：73.3660 - 73.8000",
+        "止損：72.5270",
+        "止盈：TP1 74.6390 出 30%；TP2 75.6951 出 40%；TP3 76.7511 出 30%",
+        "風報比：2.00R",
+        "原因：穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。"
+      ],
+      "should_execute": false,
+      "raw_trade_action": "avoid",
+      "raw_trade_action_label": "不能做",
+      "raw_trade_action_reason": "分數低於 58，結構與入場條件不足。",
+      "entry_distance_pct": 0.37796976241900804,
+      "quant_diagnostics": {
+        "htf_context": 45.7,
+        "ltf_trigger": 57.1,
+        "entry_quality": 48.8,
+        "risk_reward_quality": 100.0,
+        "market_api_quality": 70.0,
+        "optional_confluence": 0.0,
+        "external_api_ok": true,
+        "derivative_blocked": false,
+        "derivative_warning": "",
+        "core_ict_ok": true
+      },
+      "score_model": {
+        "method": "核心 ICT 100 分動態分母 + 共振加分；未申請或未觸發的資料不當 0 分扣分。",
+        "core_raw": 57.6,
+        "core_available_max": 100.0,
+        "core_score": 57.6,
+        "bonus_score": 0.0,
+        "bonus_available_max": 0.0,
+        "final_score": 57.6,
+        "data_completeness": 100.0,
+        "optional_features": {},
+        "skipped_core": {},
+        "skipped_optional_not_penalized": {
+          "trendline": "未形成有效 2-3 觸點趨勢線破位，屬於未觸發加分項",
+          "amd": "AMD 未進入可交易階段：no_accumulation",
+          "nexus": "Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+        },
+        "external_providers_used": [
+          "DeFiLlama",
+          "交易所公開衍生品"
+        ],
+        "paid_api_rule": "只有成功讀到且形成共振的外部資料才加分；未設定的付費 API 不納入分母。"
+      },
+      "signal_state": {
+        "direction": "long",
+        "raw_action": "avoid",
+        "stable_action": {
+          "code": "avoid",
+          "label": "不能做",
+          "reason": "穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。",
+          "entry_distance_pct": 0.37796976241900804
+        },
+        "smoothed_score": 57.6,
+        "last_score": 57.6,
+        "confirm_count": 0,
+        "fail_count": 1,
+        "updated_at": "2026-06-01T12:52:43.163207+00:00",
+        "raw_action_label": "不能做",
+        "raw_action_reason": "分數低於 58，結構與入場條件不足。",
+        "stability_reason": "連續失效或分數太低，取消交易計畫。",
+        "behavior_analysis": [
+          "目前方向：long，原始分數 57.6，平滑分數 57.6。",
+          "HTF 背景 45.7，LTF 觸發 57.1，入場品質 48.8。",
+          "風控品質 100.0，市場/API 品質 70.0。",
+          "衍生品/API 資料已參與判斷。",
+          "目前主計畫 RR 約 2.00R。"
+        ],
+        "trade_plan": [
+          "狀態：不能做。原始模型：不能做；平滑分數：57.6。",
+          "只在入場區 73.366 - 73.8 附近執行，不追價。",
+          "止損放在 72.527，若被打到代表結構/流動性假設失效。",
+          "TP1 74.639，約 1.00R，建議出 30%。到 1R 可先減倉，保護本金",
+          "TP2 75.6951，約 2.00R，建議出 40%。主目標，優先看最近買方流動性",
+          "TP3 76.7511，約 3.00R，建議出 30%。延伸目標，趨勢強才保留",
+          "執行方式：不交易，等待下一輪掃描重新評估。"
+        ]
+      },
+      "price": 74.08,
+      "change_pct_24h": 8.7225,
+      "quote_volume_24h": 698524892.3116,
+      "data_time": "2026-06-01T12:50:00+00:00",
+      "entry_zone": [
+        73.366,
+        73.8
+      ],
+      "stop": 72.52697142857143,
+      "target": 75.69505714285714,
+      "take_profits": [
+        {
+          "name": "TP1",
+          "price": 74.63902857142857,
+          "rr": 1.0,
+          "portion_pct": 30.0,
+          "note": "到 1R 可先減倉，保護本金"
+        },
+        {
+          "name": "TP2",
+          "price": 75.69505714285714,
+          "rr": 2.0,
+          "portion_pct": 40.0,
+          "note": "主目標，優先看最近買方流動性"
+        },
+        {
+          "name": "TP3",
+          "price": 76.75108571428571,
+          "rr": 3.0,
+          "portion_pct": 30.0,
+          "note": "延伸目標，趨勢強才保留"
+        }
+      ],
+      "rr": 2.0,
+      "reasons": [
+        "+9.2/16 1H 出現有效流動性掃蕩並收回關鍵位",
+        "+4.5/14 接近 4H 訂單塊 POI",
+        "+16.0/16 15m MSS 收盤突破 73.472",
+        "+11.7/14 2026-06-01T12:30:00+00:00 long FVG 已回補測試但未完全填補，且與 OB 重疊",
+        "+12.0/12 以最近流動性目標估算 RR=2.00",
+        "+4.2/6 24h 成交額 > 1 億 USDT、與 BTC 相關性 0.53，但 BTC 方向不完全同向"
+      ],
+      "warnings": [
+        "沒有明確大實體單向位移",
+        "trendline 未納入分母：未形成有效 2-3 觸點趨勢線破位，屬於未觸發加分項",
+        "amd 未納入分母：AMD 未進入可交易階段：no_accumulation",
+        "nexus 未納入分母：Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+      ],
+      "feature_scores": {
+        "liquidity_sweep": 9.2,
+        "htf_poi": 4.5,
+        "mss_bos": 16.0,
+        "displacement": 0.0,
+        "fvg": 11.7,
+        "ote": 0.0,
+        "risk_reward": 12.0,
+        "market_quality": 4.2
+      },
+      "feature_max_scores": {
+        "liquidity_sweep": 16.0,
+        "htf_poi": 14.0,
+        "mss_bos": 16.0,
+        "displacement": 12.0,
+        "fvg": 14.0,
+        "ote": 10.0,
+        "risk_reward": 12.0,
+        "market_quality": 6.0
+      },
+      "skipped_features": {
+        "trendline": "未形成有效 2-3 觸點趨勢線破位，屬於未觸發加分項",
+        "amd": "AMD 未進入可交易階段：no_accumulation",
+        "nexus": "Nexus/Silver Bullet 未觸發：outside_silver_bullet"
+      },
+      "raw_score": 57.59824642786993,
+      "core_raw_score": 57.6,
+      "core_score": 57.6,
+      "bonus_score": 0.0,
+      "bonus_available_max": 0.0,
+      "available_score_max": 100.0,
+      "data_completeness": 100.0,
+      "long_score": 57.598246427869924,
+      "short_score": 44.5,
+      "long_data_completeness": 100.0,
+      "short_data_completeness": 100.0,
+      "data_coverage": {
+        "4h": 360,
+        "1h": 500,
+        "15m": 500,
+        "5m": 500
+      },
+      "missing_data": [],
+      "metadata": {
+        "paid_data": {
+          "providers": [
+            "DeFiLlama",
+            "交易所公開衍生品"
+          ],
+          "values": {
+            "exchange_public_derivatives": {
+              "funding_rate": 0.0001,
+              "open_interest": 4136300.36,
+              "open_interest_change_pct": 0.7820155487171059
+            },
+            "交易所公開資料_funding": 0.0001,
+            "defillama_macro": {
+              "protocol_count": 7605,
+              "total_tvl": 520194051917.0379
+            }
+          },
+          "bonus_long": 0.0,
+          "bonus_short": 0.0,
+          "warnings": []
+        },
+        "signal_state": {
+          "direction": "long",
+          "raw_action": "avoid",
+          "stable_action": {
+            "code": "avoid",
+            "label": "不能做",
+            "reason": "穩定分數 57.6，不符合交易條件。原始判斷：分數低於 58，結構與入場條件不足。；連續失效或分數太低，取消交易計畫。",
+            "entry_distance_pct": 0.37796976241900804
+          },
+          "smoothed_score": 57.6,
+          "last_score": 57.6,
+          "confirm_count": 0,
+          "fail_count": 1,
+          "updated_at": "2026-06-01T12:52:43.163207+00:00",
+          "raw_action_label": "不能做",
+          "raw_action_reason": "分數低於 58，結構與入場條件不足。",
+          "stability_reason": "連續失效或分數太低，取消交易計畫。",
+          "behavior_analysis": [
+            "目前方向：long，原始分數 57.6，平滑分數 57.6。",
+            "HTF 背景 45.7，LTF 觸發 57.1，入場品質 48.8。",
+            "風控品質 100.0，市場/API 品質 70.0。",
+            "衍生品/API 資料已參與判斷。",
+            "目前主計畫 RR 約 2.00R。"
+          ],
+          "trade_plan": [
+            "狀態：不能做。原始模型：不能做；平滑分數：57.6。",
+            "只在入場區 73.366 - 73.8 附近執行，不追價。",
+            "止損放在 72.527，若被打到代表結構/流動性假設失效。",
+            "TP1 74.639，約 1.00R，建議出 30%。到 1R 可先減倉，保護本金",
+            "TP2 75.6951，約 2.00R，建議出 40%。主目標，優先看最近買方流動性",
+            "TP3 76.7511，約 3.00R，建議出 30%。延伸目標，趨勢強才保留",
+            "執行方式：不交易，等待下一輪掃描重新評估。"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "symbols": {
+    "ETHUSDT": {
+      "direction": "long",
+      "raw_action": "limit",
+      "stable_action": "limit",
+      "smoothed_score": 82.04,
+      "last_score": 79.95,
+      "confirm_count": 1,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "BTCUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 79.4,
+      "last_score": 79.4,
+      "confirm_count": 0,
+      "fail_count": 3,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "HYPEUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 58.3,
+      "last_score": 58.6,
+      "confirm_count": 0,
+      "fail_count": 3,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "ONDOUSDT": {
+      "direction": "long",
+      "raw_action": "limit",
+      "stable_action": "limit",
+      "smoothed_score": 80.15,
+      "last_score": 80.15,
+      "confirm_count": 2,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "LINKUSDT": {
+      "direction": "short",
+      "raw_action": "limit",
+      "stable_action": "limit",
+      "smoothed_score": 77.6,
+      "last_score": 76.5,
+      "confirm_count": 2,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "XAUTUSDT": {
+      "direction": "long",
+      "raw_action": "market",
+      "stable_action": "watch",
+      "smoothed_score": 80.8,
+      "last_score": 85.75,
+      "confirm_count": 1,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "AVAXUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 70.15,
+      "last_score": 62.17,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "VIRTUALUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 76.2,
+      "last_score": 76.2,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "LITUSDT": {
+      "direction": "long",
+      "raw_action": "limit",
+      "stable_action": "limit",
+      "smoothed_score": 72.2,
+      "last_score": 72.2,
+      "confirm_count": 2,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "TONUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 69.9,
+      "last_score": 67.7,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "1000PEPEUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 71.67,
+      "last_score": 71.67,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "SOLUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 72.07,
+      "last_score": 72.73,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "ENAUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 72.56,
+      "last_score": 75.42,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "TAOUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 70.1,
+      "last_score": 70.1,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "WLDUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 68.5,
+      "last_score": 68.5,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "LTCUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 68.15,
+      "last_score": 68.15,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "ADAUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 64.28,
+      "last_score": 60.7,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "XLMUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 67.0,
+      "last_score": 67.0,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "SUIUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 60.62,
+      "last_score": 60.62,
+      "confirm_count": 0,
+      "fail_count": 1,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "VVVUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 66.5,
+      "last_score": 66.5,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "ARBUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 65.92,
+      "last_score": 65.92,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "NEARUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 65.9,
+      "last_score": 65.9,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "HOMEUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "avoid",
+      "smoothed_score": 67.36,
+      "last_score": 67.36,
+      "confirm_count": 0,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "XAGUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 65.73,
+      "last_score": 65.73,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "BNBUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 65.45,
+      "last_score": 65.45,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "ASTERUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 65.2,
+      "last_score": 65.2,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "DOGEUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 64.8,
+      "last_score": 64.8,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "FARTCOINUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 63.2,
+      "last_score": 61.27,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "PORTALUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 67.54,
+      "last_score": 71.5,
+      "confirm_count": 0,
+      "fail_count": 1,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "ZECUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 62.0,
+      "last_score": 62.0,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "BCHUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 61.5,
+      "last_score": 61.5,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "LABUSDT": {
+      "direction": "short",
+      "raw_action": "avoid",
+      "stable_action": "avoid",
+      "smoothed_score": 59.22,
+      "last_score": 59.22,
+      "confirm_count": 0,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "INJUSDT": {
+      "direction": "short",
+      "raw_action": "avoid",
+      "stable_action": "avoid",
+      "smoothed_score": 55.83,
+      "last_score": 52.25,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "STGUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 60.23,
+      "last_score": 62.7,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "PLAYSOUTUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "avoid",
+      "smoothed_score": 59.66,
+      "last_score": 59.66,
+      "confirm_count": 0,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "ALLOUSDT": {
+      "direction": "long",
+      "raw_action": "watch",
+      "stable_action": "avoid",
+      "smoothed_score": 57.91,
+      "last_score": 57.91,
+      "confirm_count": 0,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "XRPUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 59.45,
+      "last_score": 62.2,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "DOTUSDT": {
+      "direction": "short",
+      "raw_action": "watch",
+      "stable_action": "watch",
+      "smoothed_score": 60.5,
+      "last_score": 60.5,
+      "confirm_count": 0,
+      "fail_count": 1,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "HBARUSDT": {
+      "direction": "short",
+      "raw_action": "avoid",
+      "stable_action": "avoid",
+      "smoothed_score": 56.15,
+      "last_score": 56.7,
+      "confirm_count": 0,
+      "fail_count": 2,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "GUNUSDT": {
+      "direction": "short",
+      "raw_action": "avoid",
+      "stable_action": "avoid",
+      "smoothed_score": 52.0,
+      "last_score": 52.0,
+      "confirm_count": 0,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "BSBUSDT": {
+      "direction": "neutral",
+      "raw_action": "avoid",
+      "stable_action": "avoid",
+      "smoothed_score": 48.88,
+      "last_score": 49.7,
+      "confirm_count": 0,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    },
+    "HUSDT": {
+      "direction": "neutral",
+      "raw_action": "avoid",
+      "stable_action": "avoid",
+      "smoothed_score": 46.02,
+      "last_score": 45.36,
+      "confirm_count": 0,
+      "fail_count": 0,
+      "updated_at": "2026-06-01T12:55:40.572623+00:00"
+    }
+  },
+  "updated_at": "2026-06-01T12:55:40.572623+00:00"
+}
