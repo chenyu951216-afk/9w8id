@@ -1,8 +1,11 @@
 __pycache__/
 *.py[cod]
+.git/
+.gitignore
 .env
 .venv/
 venv/
 config.local.json
 reports/
+state/
 *.log
