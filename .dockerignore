@@ -7,4 +7,5 @@ __pycache__/
 venv/
 config.local.json
 reports/
+state/
 *.log
